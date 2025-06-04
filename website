@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student SoulSpace</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #dbeafe, #f0fdf4);
+      color: #333;
+    }
+    header {
+      background-color: #93c5fd;
+      color: #1e3a8a;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #bfdbfe;
+    }
+    nav a {
+      color: #1e3a8a;
+      padding: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #93c5fd;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .message-box {
+      background-color: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      resize: none;
+    }
+    button {
+      background-color: #60a5fa;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3b82f6;
+    }
+    footer {
+      background-color: #93c5fd;
+      color: #1e3a8a;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student SoulSpace</h1>
+    <p>Share your thoughts anonymously. You're not alone.</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Share</a>
+    <a href="#">Support</a>
+    <a href="#">Resources</a>
+  </nav>
+
+  <main>
+    <div class="message-box">
+      <h2>Express Yourself</h2>
+      <form id="anonymousForm">
+        <textarea id="message" placeholder="Write your feelings here..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="message-box">
+      <h2>Shared Feelings</h2>
+      <div id="messages">
+        <p>No messages yet. Be the first to share.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Student SoulSpace. Your safe emotional corner.
+  </footer>
+
+  <script>
+    const form = document.getElementById('anonymousForm');
+    const messagesDiv = document.getElementById('messages');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const msg = document.getElementById('message').value;
+      if (msg.trim() === '') return;
+
+      const p = document.createElement('p');
+      p.textContent = msg;
+      p.style.backgroundColor = '#e0f2fe';
+      p.style.padding = '1rem';
+      p.style.borderRadius = '10px';
+      p.style.marginBottom = '1rem';
+
+      messagesDiv.prepend(p);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
